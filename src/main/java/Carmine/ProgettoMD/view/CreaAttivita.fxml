@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" prefHeight="650.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Carmine.ProgettoMD.Controller.GestioneAttivitaController">
+   <content>
+      <VBox spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+         <children>
+
+            <!-- HEADER -->
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="Crea nuova Attivita" textFill="#2c3e50">
+                     <font><Font name="System Bold" size="26.0" /></font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label text="Stato:"><font><Font size="14.0" /></font></Label>
+                  <TextField fx:id="txtStato" editable="false" prefWidth="150.0"
+                             style="-fx-font-weight: bold; -fx-alignment: center;" />
+               </children>
+            </HBox>
+
+            <Separator prefWidth="200.0" />
+
+            <!-- TIPO ATTIVITA -->
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="Tipo Attivita:" prefWidth="120.0" />
+                  <ComboBox fx:id="cmbTipoAttivita" prefWidth="300.0" promptText="Seleziona tipo..." onAction="#handleTipoChanged" />
+               </children>
+            </HBox>
+
+            <Separator prefWidth="200.0" />
+
+            <Label text="Dati Generali" textFill="#34495e">
+               <font><Font name="System Bold" size="18.0" /></font>
+            </Label>
+
+            <!-- GRIGLIA CAMPI COMUNI -->
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="100.0" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Titolo:" />
+                  <TextField fx:id="txtTitolo" promptText="Inserisci il titolo..." GridPane.columnIndex="1" />
+
+                  <Label text="Descrizione:" GridPane.rowIndex="1" />
+                  <TextArea fx:id="txtDescrizione" wrapText="true" promptText="Inserisci una descrizione..."
+                            GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                  <Label text="Periodo:" GridPane.rowIndex="2" />
+                  <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <DatePicker fx:id="dpDataInizio" prefWidth="150.0" promptText="Data Inizio" editable="false" />
+                        <Label text="-" />
+                        <DatePicker fx:id="dpDataFine" prefWidth="150.0" promptText="Data Fine" editable="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+
+            <!-- CAMPI SPECIFICI PER TIPO -->
+            <VBox fx:id="boxDatiSpecifici" spacing="15.0"
+                  style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-border-color: #dee2e6; -fx-border-radius: 5;">
+               <children>
+                  <Label text="Dati Specifici della Categoria" textFill="#34495e">
+                     <font><Font name="System Bold" size="14.0" /></font>
+                  </Label>
+
+                  <!-- PUBLIC ENGAGEMENT -->
+                  <HBox fx:id="boxPartecipanti" alignment="CENTER_LEFT" managed="false" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Numero Partecipanti:" prefWidth="150.0" />
+                        <TextField fx:id="txtPartecipanti" prefWidth="100.0" promptText="Es. 150" />
+                     </children>
+                  </HBox>
+
+                  <!-- PROGETTO INNOVAZIONE -->
+                  <HBox fx:id="boxPartner" alignment="CENTER_LEFT" managed="false" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Partner Aziendale:" prefWidth="150.0" />
+                        <TextField fx:id="txtPartner" promptText="Es. Google Italia" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+
+                  <!-- PATRIMONIO CULTURALE -->
+                  <HBox fx:id="boxLuogo" alignment="CENTER_LEFT" managed="false" spacing="15.0" visible="false">
+                     <children>
+                        <Label text="Luogo Esposizione:" prefWidth="150.0" />
+                        <TextField fx:id="txtLuogo" promptText="Es. Museo di Milano" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+
+            <!-- ALLEGATI + FEEDBACK -->
+            <HBox spacing="20.0">
+               <children>
+
+                  <!-- ALLEGATI -->
+                  <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Allegati (opzionali)">
+                           <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label text="Formati ammessi: PDF, JPG, PNG - Max 5MB per file"
+                               style="-fx-font-size: 11px; -fx-text-fill: #888888;" />
+                        <ListView fx:id="listAllegati" prefHeight="150.0" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button fx:id="btnAggiungiAllegato" text="Sfoglia file..."
+                                      onAction="#handleSfogliaFile" />
+                              <Button fx:id="btnRimuoviAllegato" text="Rimuovi selezionato"
+                                      onAction="#handleRimuoviAllegato" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <!-- FEEDBACK - visibile solo in modalita modifica -->
+                  <VBox fx:id="boxFeedback" spacing="10.0" HBox.hgrow="ALWAYS"
+                        visible="false" managed="false">
+                     <children>
+                        <Label text="Storico Feedback">
+                           <font><Font name="System Bold" size="14.0" /></font>
+                        </Label>
+                        <Label text="I feedback sono aggiunti dai revisori"
+                               style="-fx-font-size: 11px; -fx-text-fill: #888888;" />
+                        <ListView fx:id="listFeedback" prefHeight="150.0"
+                                  style="-fx-control-inner-background: #fff9c4;" />
+                     </children>
+                  </VBox>
+
+               </children>
+            </HBox>
+
+            <Separator prefWidth="200.0" />
+
+            <!-- LABEL ERRORE -->
+            <Label fx:id="lblErrore" text="" style="-fx-text-fill: red; -fx-font-size: 12px;"
+                   visible="false" managed="false" wrapText="true" />
+
+            <!-- BOTTONI -->
+            <HBox alignment="BOTTOM_RIGHT" spacing="15.0">
+               <children>
+               <Button fx:id="btnElimina" text="Elimina" onAction="#handleElimina" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-cursor: hand;" />
+                  <Button mnemonicParsing="false" onAction="#handleAnnulla" prefWidth="100.0" text="Annulla" />
+                  <Button fx:id="btnSalva" defaultButton="true" mnemonicParsing="false" onAction="#handleSalvaBozza" prefWidth="150.0" style="-fx-background-color: #2980b9; -fx-text-fill: white;" text="Salva Attività">
+                     <font><Font name="System Bold" size="13.0" /></font>
+                  </Button>
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>
