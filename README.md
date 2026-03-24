@@ -44,11 +44,11 @@ The application follows a rigid Layered Architecture to ensure maintainability a
 
 ##  System Overview
 
-### Architecture (Deployment)
-![Deployment Diagram](link_to_your_deployment_diagram_image.png)
+### Architecture (Components)
+![Components Diagram](components_diagram.png)
 
 ### Application Dashboard
-![JavaFX Dashboard](link_to_your_dashboard_screenshot.png)
+![JavaFX Dashboard](dashboard_screen.png)
 
 ##  Getting Started
 
