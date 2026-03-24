@@ -13,7 +13,7 @@ Built with a strict **Model-Driven Design (MDD)** approach, the system translate
 ##  Full Documentation
 For a deep dive into the system's architecture, including detailed **UML Diagrams** (Use Cases, Class, Component, Deployment, Sequence, Activity) and the mathematical formalization of business rules (OCL/JML), please refer to the official project report:
 
--> [**Read the Full Architecture Report (PDF)**](./relazione.pdf)
+-> [**Read the Full Architecture Report (PDF)**](./Relazione.pdf)
 
 ##  Key Features
 * **Role-Based Access Control (RBAC):** Strict separation of privileges among Professors, Managers, and Administrators.
