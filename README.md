@@ -1,4 +1,4 @@
-# 🎓 Academic Activity Reporting System (Terza Missione)
+#  Academic Activity Reporting System (Terza Missione)
 
 ![Java](https://img.shields.io/badge/Java-21-orange.svg)
 ![JavaFX](https://img.shields.io/badge/JavaFX-GUI-blue.svg)
@@ -13,7 +13,7 @@ Built with a strict **Model-Driven Design (MDD)** approach, the system translate
 ##  Full Documentation
 For a deep dive into the system's architecture, including detailed **UML Diagrams** (Use Cases, Class, Component, Deployment, Sequence, Activity) and the mathematical formalization of business rules (OCL/JML), please refer to the official project report:
 
-👉 [**Read the Full Architecture Report (PDF)**](./relazione.pdf)
+-> [**Read the Full Architecture Report (PDF)**](./relazione.pdf)
 
 ##  Key Features
 * **Role-Based Access Control (RBAC):** Strict separation of privileges among Professors, Managers, and Administrators.
@@ -50,7 +50,7 @@ The application follows a rigid Layered Architecture to ensure maintainability a
 ### Application Dashboard
 ![JavaFX Dashboard](link_to_your_dashboard_screenshot.png)
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 * Java Development Kit (JDK) 21 or higher
